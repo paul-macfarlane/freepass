@@ -9,10 +9,7 @@ export const env = createEnv({
   server: {
     DATABASE_URL: z.string().url(),
     NODE_ENV: z.enum(["development", "test", "production"]),
-    NEXTAUTH_SECRET:
-      process.env.NODE_ENV === "production"
-        ? z.string().min(1)
-        : z.string().min(1).optional(),
+    NEXTAUTH_SECRET: z.string().min(1),
     NEXTAUTH_URL: z.preprocess(
       // This makes Vercel deployments not fail if you don't set NEXTAUTH_URL
       // Since NextAuth.js automatically uses the VERCEL_URL if present.
@@ -21,8 +18,10 @@ export const env = createEnv({
       process.env.VERCEL ? z.string().min(1) : z.string().url()
     ),
     // Add `.min(1) on ID and SECRET if you want to make sure they're not empty
-    DISCORD_CLIENT_ID: z.string(),
-    DISCORD_CLIENT_SECRET: z.string(),
+    DISCORD_CLIENT_ID: z.string().min(1),
+    DISCORD_CLIENT_SECRET: z.string().min(1),
+    GITHUB_ID: z.string().min(1),
+    GITHUB_SECRET: z.string().min(1),
   },
 
   /**
@@ -45,6 +44,8 @@ export const env = createEnv({
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
     DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
+    GITHUB_ID: process.env.GITHUB_ID,
+    GITHUB_SECRET: process.env.GITHUB_SECRET,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.

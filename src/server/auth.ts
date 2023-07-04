@@ -6,6 +6,7 @@ import {
   type DefaultSession,
 } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
+import GitHubProvider from "next-auth/providers/github";
 import { env } from "~/env.mjs";
 import { prisma } from "~/server/db";
 
@@ -49,7 +50,11 @@ export const authOptions: NextAuthOptions = {
   providers: [
     DiscordProvider({
       clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
+      clientSecret: env.DISCORD_CLIENT_SECRET
+    }),
+    GitHubProvider({
+      clientId: env.GITHUB_ID,
+      clientSecret: env.GITHUB_SECRET,
     }),
     /**
      * ...add more providers here.

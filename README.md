@@ -26,7 +26,9 @@ Now you need to generate a secret for NextAuth. Run:
 openssl rand -base64 32
 ```
 
-You can then set the value of `NEXTAUTH_SECRET` to the output.
+You can then set the value of `NEXTAUTH_SECRET` to the output. 
+
+You will also need to set the `GITHUB_ID` and `GITHUB_SECRET` so that you can sign in via GitHub locally. Similarly, to sign in locally via Discord, you will need to set `DISCORD_CLIENT_ID` and `DISCORD_CLIENT_SECRET`. See @paul-macfarlane for getting access to these.
 
 Next, run a prisma migration to update your local database's schema:
 
