@@ -42,6 +42,40 @@ Now with all dependencies installed and Prisma setup you can run the app locally
 npm run dev
 ```
 
+## Testing
+
+This project uses a combination of [Jest](https://jestjs.io/), [ts-jest](https://kulshekhar.github.io/ts-jest/), [babel-jest](https://www.npmjs.com/package/babel-jest) (needed for modules like mjs and also tsx/jsx), and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
+
+To run all tests, run 
+
+```shell
+npm test
+```
+
+### Backend Testing
+
+The backend should include unit tests for all procedure calls and routes. To see an example of testing procedure calls, see [src/server/api/routers/example.test.ts](./src/server/api/routers/example.test.ts).
+
+Configuration for backend tests is in [jest.config.backend.cjs](./jest.config.backend.cjs). Running
+
+```shell
+npm run test:backend
+```
+
+will run the backend tests exclusively.
+
+### Frontend Testing
+
+The frontend should include tests of the core user experience of components. The important thing is to test the user experienc, and NOT test the implementation details of components. See https://www.robinwieruch.de/react-testing-library/ for a great tutorial on React Testing Library and its suggested approach. Ideally, all reusable components (those in [src/components](./src/components/)) have tests. Pages are a little trickier and depending on the implementation adding tests may not be worth the complexity of adding tests. Those will be treated on a case by case basis in code review.
+
+Configuration for frontend tests is in [jest.config.frontend.cjs](./jest.config.frontend.cjs). Running
+
+```shell
+npm run test:frontend
+```
+
+will run the frontend tests exclusively.
+
 ## Security Guidelines for Our Application
 
 This document outlines the security measures we are implementing in our application, which uses a React frontend with NextJS, a NodeJS backend with tRPC, and a MySQL database with Prisma as the ORM.
