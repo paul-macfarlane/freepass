@@ -2,7 +2,7 @@ module.exports = {
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.frontend.ts"],
   transform: {
-    "^.+\\.(ts|tsx)$": "babel-jest",
+    "^.+\\.(ts|tsx)$": ["babel-jest", { configFile: "./jest.babelrc" }],
   },
   moduleNameMapper: {
     "^~/(.*)$": "<rootDir>/src/$1",

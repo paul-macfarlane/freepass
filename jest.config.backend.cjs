@@ -2,7 +2,7 @@ module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
   transform: {
-    "^.+\\.mjsn?$": "babel-jest",
+    "^.+\\.mjsn?$": ["babel-jest", { configFile: "./jest.babelrc" }],
   },
   moduleNameMapper: {
     "^~/(.*)$": "<rootDir>/src/$1",
