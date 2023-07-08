@@ -7,7 +7,10 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest --config jest.config.frontend.cjs && jest --config jest.config.backend.cjs",
+    "test:frontend": "jest --config jest.config.frontend.cjs",
+    "test:backend": "jest --config jest.config.backend.cjs"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.5",
@@ -26,7 +29,15 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.8",
+    "@babel/preset-env": "^7.22.7",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/eslint": "^8.37.0",
+    "@types/jest": "^29.5.2",
     "@types/node": "^18.16.0",
     "@types/prettier": "^2.7.2",
     "@types/react": "^18.2.6",
@@ -34,13 +45,17 @@
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
     "autoprefixer": "^10.4.14",
+    "babel-jest": "^29.6.1",
     "eslint": "^8.40.0",
     "eslint-config-next": "^13.4.2",
+    "jest": "^29.6.1",
+    "jest-environment-jsdom": "^29.6.1",
     "postcss": "^8.4.21",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8",
     "prisma": "^4.14.0",
     "tailwindcss": "^3.3.0",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.0.4"
   },
   "ct3aMetadata": {
