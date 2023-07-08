@@ -10,6 +10,12 @@ First, make sure [NodeJS](https://nodejs.org/en) is installed on your local mach
 npm install
 ```
 
+Next set up [Husky](https://typicode.github.io/husky/), our commit hook tool used to enforce code quality pre-commit:
+
+```shell
+npm run prepare
+```
+
 Then, copy [.env.example](.env.example) to [.env](.env):
 
 ```shell
